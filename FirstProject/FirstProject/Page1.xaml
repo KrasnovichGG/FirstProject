@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstProject.Page1" Title="Картинки">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                x:Name="Page1Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                    <Image
+                x:Name="Page11Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                x:Name="Page13Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                    <Image
+                x:Name="Page14Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                x:Name="Page15Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                    <Image
+                x:Name="Page16Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                x:Name="Page17Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                    <Image
+                x:Name="Page18Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
