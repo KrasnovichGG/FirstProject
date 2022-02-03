@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace FirstProject
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreatProject : ContentPage
+    public partial class CreateProject : ContentPage
     {
-        public CreatProject()
+        public CreateProject()
         {
             InitializeComponent();
         }

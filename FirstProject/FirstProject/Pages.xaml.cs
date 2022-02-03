@@ -22,5 +22,10 @@ namespace FirstProject
         {
             Navigation.PushAsync(new TableOsnova());
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CreateProject());
+        }
     }
 }

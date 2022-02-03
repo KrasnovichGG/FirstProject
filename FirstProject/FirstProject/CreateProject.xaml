@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstProject.CreateProject" Visual="Material">
+    <NavigationPage.TitleView>
+        <Label
+                FontSize="21"
+                HorizontalOptions="CenterAndExpand"
+                Text="Создать проект"
+                TextColor="White"
+                TextTransform="None"
+                VerticalOptions="CenterAndExpand"
+                Padding="70,0"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout Spacing="30" Margin="20,15">
+            <Entry BackgroundColor="LightGray" Placeholder="Имя проекта"/>
+            <Editor BackgroundColor="LightGray" Placeholder="Описание" AutoSize="TextChanges"/>
+            <Entry BackgroundColor="LightGray" Placeholder="Телефон №1"/>
+            <Entry BackgroundColor="LightGray" Placeholder="Телефон №2"/>
+            <Entry BackgroundColor="LightGray" Placeholder="Email"/>
+            <Entry BackgroundColor="LightGray" Placeholder="Адрес"/>
+            <StackLayout Orientation="Horizontal">
+                <Button
+                    x:Name="CancelBTN"
+                    CornerRadius="30"
+                    WidthRequest="150"
+                    HeightRequest="50"
+                    BackgroundColor="DeepSkyBlue"
+                    HorizontalOptions="Start"
+                    Text="Отмена"
+                    />
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
