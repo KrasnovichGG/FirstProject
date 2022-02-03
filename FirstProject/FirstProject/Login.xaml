@@ -1,43 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FirstProject.Login" Title="Добро пожаловать!">
+             x:Class="FirstProject.Login" Visual="Material">
+             
     <ContentPage.Content>
-        <StackLayout Margin="60,20" Spacing="30">
+        <StackLayout Margin="40,20" Spacing="30">
             <Image 
                 x:Name="ImageMenu"
                 Aspect="AspectFit"
                 Scale="0.8"
                 Source="APLUS.png" />
             <StackLayout Spacing="5">
-                <Label Text="Логин" TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
+                <Label TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
                 <Frame Margin="0,0" BorderColor="Black">
-                    <Entry x:Name="LoginTextbox" TextColor="Black" Background="White" Margin="-15,-15" Keyboard="Email"/>
+                    <Entry x:Name="LoginTextbox" Placeholder="Логин" TextColor="Black" Background="White" Margin="-15,-15" Keyboard="Email"/>
                 </Frame>
-                <Label Text="Пароль" TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
+                <Label  TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
                 <Frame Margin="0,0" BorderColor="Black">
-                    <Entry x:Name="PasswordTextBox" IsPassword="True" TextColor="Black" Background="White" Margin="-15,-15" Keyboard="Chat"/>
+                    <Entry x:Name="PasswordTextBox" IsPassword="True" Placeholder="Пароль" TextColor="Black" Background="White" Margin="-15,-15" Keyboard="Chat"/>
                 </Frame>
             </StackLayout>
-            <StackLayout>
-                <Button Margin="0,20,0,0"
+            <StackLayout Orientation="Horizontal">
+                <Button
                     x:Name="BtnRegistration"
                     Clicked="BtnRegistration_Clicked"
                     HorizontalOptions="Start"
                     BorderColor="Black"
                     BorderWidth="1"
-                    BackgroundColor="LightGray"
+                    BackgroundColor="DeepSkyBlue"
                     TextColor="Black"
-                    Text="Зарегистрироваться"/>
-                <Button Margin="0,-54,0,0"
+                    Text="Зарегистрироваться"
+                    CornerRadius="45"/>
+                <Button
                     x:Name="BtnLogin"
                     HorizontalOptions="EndAndExpand"
                     Clicked="BtnLogin_Clicked"
                     BorderColor="Black"
                     BorderWidth="1"
-                    BackgroundColor="LightGray"
+                    BackgroundColor="DeepSkyBlue"
                     TextColor="Black"
-                    Text="Войти"/>
+                    Text="Войти"
+                    CornerRadius="45"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
