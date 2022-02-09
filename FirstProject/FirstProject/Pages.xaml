@@ -20,7 +20,7 @@
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                 </Label.GestureRecognizers>
             </Label>
-            
+
             <!--<ImageButton 
                 Aspect="AspectFit"
                 BackgroundColor="Transparent"
@@ -32,36 +32,18 @@
                 WidthRequest="30"/>-->
         </StackLayout>
     </NavigationPage.TitleView>
-    
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <x:Array x:Key="projects" Type="{x:Type x:String}">
-                <x:String >Проект 1</x:String>
-                <x:String >Проект 2</x:String>
-                <x:String >Проект 3</x:String>
-                <x:String >Проект 4</x:String>
-                <x:String >Проект 5</x:String>
-                <x:String >Проект 6</x:String>
-                <x:String >Проект 7</x:String>
-                <x:String >Проект 8</x:String>
-                <x:String >Проект 9</x:String>
-                <x:String >Проект 10</x:String>
-                <x:String >Проект 11</x:String>
-                <x:String >Проект 12</x:String>
-                <x:String >Проект 13</x:String>
-                <x:String >Проект 14</x:String>
-                <x:String >Проект 15</x:String>
-                <x:String >Проект 16</x:String>
-                <x:String >Проект 17</x:String>
-                <x:String >Проект 18</x:String>
-            </x:Array>
-        </ResourceDictionary>
-        
-    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout>
-            
-            <ListView x:Name="projectList" ItemTapped="projectList_ItemTapped" ItemsSource="{StaticResource Key=projects}" />
+
+            <ListView x:Name="projectList" ItemTapped="projectList_ItemTapped"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" TextColor="Black"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
             
         </StackLayout>
     </ContentPage.Content>

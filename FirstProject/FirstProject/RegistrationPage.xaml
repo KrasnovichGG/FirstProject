@@ -19,6 +19,7 @@
                     BackgroundColor="DeepSkyBlue"
                     CornerRadius="45"
                     BorderWidth="1"
+                        Clicked="BtnREG_Clicked"
                     Text="Зарегистрироваться"
                     HorizontalOptions="CenterAndExpand"/>
             </StackLayout>

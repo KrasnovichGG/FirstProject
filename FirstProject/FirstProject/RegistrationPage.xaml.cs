@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using FirstProject.models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +15,11 @@ namespace FirstProject
         public RegistrationPage()
         {
             InitializeComponent();
+        }
+        
+        private void BtnREG_Clicked(object sender, EventArgs e)
+        {
+            App.Db.SaveItem(new ProjectModel("Борщ","Вкусный","89655335567","Borsh@mail.com","Адрес кастрюля"));
         }
     }
 }

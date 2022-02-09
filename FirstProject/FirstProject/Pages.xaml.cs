@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using FirstProject.models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,12 +15,14 @@ namespace FirstProject
         public Pages()
         {
             InitializeComponent();
+            projectList.ItemsSource = App.Db.GetProjects();
         }
+
 
 
         private void projectList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushAsync(new TableOsnova());
+            Navigation.PushAsync(new TableOsnova((ProjectModel)e.Item));
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
