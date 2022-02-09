@@ -2,8 +2,30 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="FirstProject.TableOsnova"
-            xmlns:local="clr-namespace:FirstProject" Title="Проект № 1">
-  <!--Pages can be added as references or inline-->
+            xmlns:local="clr-namespace:FirstProject" Visual="Material">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Margin="0,0,30,0"
+                FontSize="21"
+                HorizontalOptions="CenterAndExpand"
+                Text="Проект №1"
+                TextColor="White"
+                TextTransform="None"
+                VerticalOptions="CenterAndExpand"
+                Padding="70,0"/>
+            <Label
+                FontSize="35"
+                FontFamily="MaterialIconsFont"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="End"
+                Text="&#xe3c9;"
+                TextColor="White">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <ContentPage Title="О проекте">
         <ScrollView>
             <StackLayout Spacing="-30">
@@ -19,24 +41,11 @@
     <local:Page1 Title="Картинки">
     </local:Page1>
     <ContentPage Title="Контакты">
-        <StackLayout Padding="40,0" Margin="0,30,0,0">
-            <Label Text="Телефон" TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-            <Frame Margin="5,0" BorderColor="Black">
-                <Entry x:Name="Phonetxt" TextColor="Black" IsEnabled="False" Background="White" Margin="-15,-15" Keyboard="Telephone"/>
-            </Frame>
-            <Label Text="Телефон" TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-            <Frame Margin="5,0" BorderColor="Black">
-                <Entry x:Name="Phonetxt2" TextColor="Black" IsEnabled="False" Background="White" Margin="-15,-15" Keyboard="Telephone"/>
-            </Frame>
-            <Label Text="E-mail" TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-            <Frame Margin="5,0" BorderColor="Black">
-                <Entry x:Name="Emailtxt2" TextColor="Black" IsEnabled="False" Background="White" Margin="-15,-15" Keyboard="Email"/>
-            </Frame>
-            <Label Text="Адрес" TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-            <Frame Margin="5,0" BorderColor="Black">
-                <Entry x:Name="Adresstxt" TextColor="Black" IsEnabled="False" Background="White" Margin="-15,-15" Keyboard="Chat"/>
-            </Frame>
-            
+        <StackLayout Spacing="60" Margin="30,30,30,0">
+            <Entry x:Name="Phonetxt" TextColor="Black" IsEnabled="False" Background="White" Placeholder="Телефон"  Keyboard="Telephone"/>
+                <Entry x:Name="Phonetxt2" TextColor="Black" IsEnabled="False" Placeholder="Телефон" Background="White"  Keyboard="Telephone"/>
+                <Entry x:Name="Emailtxt2" TextColor="Black" IsEnabled="False" Placeholder="Email"  Background="White"  Keyboard="Email"/>
+            <Entry x:Name="Adresstxt" TextColor="Black" Placeholder="Адрес" IsEnabled="False" Background="White"  Keyboard="Chat"/>
         </StackLayout>
     </ContentPage>
 </TabbedPage>

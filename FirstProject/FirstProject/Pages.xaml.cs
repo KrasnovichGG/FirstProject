@@ -23,9 +23,14 @@ namespace FirstProject
             Navigation.PushAsync(new TableOsnova());
         }
 
-        private void ImageButton_Clicked(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CreateProject());
+             await Navigation.PushAsync(new CreateProject());
         }
+
+        //private void ImageButton_Clicked(object sender, EventArgs e)
+        //{
+        //    Navigation.PushAsync(new CreateProject());
+        //}
     }
 }

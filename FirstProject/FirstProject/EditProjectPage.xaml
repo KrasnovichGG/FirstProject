@@ -1,25 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FirstProject.CreateProject" Visual="Material">
+             x:Class="FirstProject.EditProjectPage" Visual="Material">
     <NavigationPage.TitleView>
         <Label Margin="0,0,30,0"
-                FontSize="21"
+                FontSize="20"
                 HorizontalOptions="CenterAndExpand"
-                Text="Создать проект"
+                Text="Изменить проект"
                 TextColor="White"
                 TextTransform="None"
                 VerticalOptions="CenterAndExpand"
                 Padding="70,0"/>
     </NavigationPage.TitleView>
-    <ContentPage.Content>
-        <StackLayout Spacing="30" Margin="20,35">
+    <StackLayout Spacing="30" Margin="20,35">
             <Entry BackgroundColor="LightGray" Placeholder="Имя проекта"/>
             <Editor BackgroundColor="LightGray" Placeholder="Описание" AutoSize="TextChanges"/>
-            <Entry BackgroundColor="LightGray" Placeholder="Телефон №1"/>
-            <Entry BackgroundColor="LightGray" Placeholder="Email"/>
+        <Entry BackgroundColor="LightGray" Placeholder="Телефон №1"/>
+        <Entry BackgroundColor="LightGray" Placeholder="Email"/>
             <Entry BackgroundColor="LightGray" Placeholder="Адрес"/>
-            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0,0,0,50" >
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0,0,0,50">
                 <Button
                     x:Name="CancelBTN"
                     CornerRadius="30"
@@ -28,17 +27,15 @@
                     BackgroundColor="DeepSkyBlue"
                     HorizontalOptions="Start"
                     Text="Отмена"
-                    /><Button
-                    x:Name="AddBTN"
+                    /> <Button
+                    x:Name="EditBTN"
                     CornerRadius="30"
                     WidthRequest="150"
                     HeightRequest="50"
                     BackgroundColor="DeepSkyBlue"
                     HorizontalOptions="EndAndExpand"
-                    Text="Создать"
+                    Text="Изменить"
                     />
             </StackLayout>
         </StackLayout>
-
-    </ContentPage.Content>
 </ContentPage>

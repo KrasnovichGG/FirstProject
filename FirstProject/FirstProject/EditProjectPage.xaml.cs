@@ -10,15 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace FirstProject
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TableOsnova : TabbedPage
+    public partial class EditProjectPage : ContentPage
     {
-        public TableOsnova()
+        public EditProjectPage()
         {
             InitializeComponent();
-        }
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new EditProjectPage());
         }
     }
 }
