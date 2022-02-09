@@ -3,24 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FirstProject.RegistrationPage" Title="Регистрация" Visual="Material">
     <ContentPage.Content>
-        <StackLayout Padding="50,0" Margin="0,50,0,0">
-            <StackLayout Spacing="90">
-                <Label Text="E-mail" TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-                <Frame Margin="5,-80" BorderColor="Black">
-                    <Entry x:Name="EmailTxt" TextColor="Black" Background="White" Margin="-10,-19,-10,-19" Keyboard="Email"/>
-                </Frame>
-                <Label Text="Логин" TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-                <Frame Margin="5,-80" BorderColor="Black">
-                    <Entry x:Name="LoginTxt" TextColor="Black" Background="White" Margin="-10,-19,-10,-19" Keyboard="Text"/>
-                </Frame>
-                <Label Text="Пароль" TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-                <Frame Margin="5,-80" BorderColor="Black">
-                    <Entry x:Name="PasswordTxt" TextColor="Black" Background="White" Margin="-10,-19,-10,-19" IsPassword="True"/>
-                </Frame>
-                <Label Text="Подтверждение пароля" TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-                <Frame Margin="5,-80" BorderColor="Black">
-                    <Entry x:Name="PasswordCompleteTxt" TextColor="Black" Background="White" Margin="-10,-19,-10,-19" IsPassword="True"/>
-                </Frame>
+        <StackLayout Padding="50,20">
+            <StackLayout Spacing="50">
+                <Entry x:Name="EmailTxt" Placeholder="Логин" TextColor="Black" BackgroundColor="LightGray" Keyboard="Email"/>
+                <Entry x:Name="LoginTxt" Placeholder="Email" TextColor="Black" BackgroundColor="LightGray" Keyboard="Text"/>
+                <Entry x:Name="PasswordTxt" Placeholder="Пароль" TextColor="Black" BackgroundColor="LightGray" IsPassword="True"/>
+                <Entry x:Name="PasswordCompleteTxt" Placeholder="Пароль" TextColor="Black" BackgroundColor="LightGray" />
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Margin="0,120,0,0"

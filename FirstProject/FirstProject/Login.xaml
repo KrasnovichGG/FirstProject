@@ -12,13 +12,9 @@
                 Source="APLUS.png" />
             <StackLayout Spacing="5">
                 <Label TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-                <Frame Margin="0,0" BorderColor="Black">
-                    <Entry x:Name="LoginTextbox" Placeholder="Логин" TextColor="Black" Background="White" Margin="-15,-15" Keyboard="Email"/>
-                </Frame>
+                <Entry x:Name="LoginTextbox" Placeholder="Логин" TextColor="Black" Background="White"  Keyboard="Email"/>
                 <Label  TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-                <Frame Margin="0,0" BorderColor="Black">
-                    <Entry x:Name="PasswordTextBox" IsPassword="True" Placeholder="Пароль" TextColor="Black" Background="White" Margin="-15,-15" Keyboard="Chat"/>
-                </Frame>
+                <Entry x:Name="PasswordTextBox" IsPassword="True" Placeholder="Пароль" TextColor="Black" Background="White"  Keyboard="Chat"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button
