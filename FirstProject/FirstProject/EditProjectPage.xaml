@@ -13,12 +13,35 @@
                 Padding="70,0"/>
     </NavigationPage.TitleView>
     <StackLayout Spacing="30" Margin="20,35">
-            <Entry BackgroundColor="LightGray" Placeholder="Имя проекта"/>
-            <Editor BackgroundColor="LightGray" Placeholder="Описание" AutoSize="TextChanges"/>
-        <Entry BackgroundColor="LightGray" Placeholder="Телефон №1"/>
-        <Entry BackgroundColor="LightGray" Placeholder="Email"/>
-            <Entry BackgroundColor="LightGray" Placeholder="Адрес"/>
-            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0,0,0,50">
+            <Entry x:Name="NameProject" BackgroundColor="LightGray" Placeholder="Имя проекта"/>
+            <Editor x:Name="Opisanie" BackgroundColor="LightGray" Placeholder="Описание" AutoSize="TextChanges"/>
+            <Entry x:Name="Phone" BackgroundColor="LightGray" Placeholder="Телефон №1"/>
+            <Entry x:Name="Email" BackgroundColor="LightGray" Placeholder="Email"/>
+            <Entry x:Name="Address" BackgroundColor="LightGray" Placeholder="Адрес"/>
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+            <Image x:Name="pizda" WidthRequest="100" HeightRequest="100"></Image>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Button
+                    x:Name="GalerylBTN"
+                    CornerRadius="30"
+                    WidthRequest="150"
+                    HeightRequest="50"
+                    BackgroundColor="DeepSkyBlue"
+                    Clicked="GetPhotoAsync"
+                    Text="Галерея"
+                    />
+                <Button
+                    x:Name="CameraBTN"
+                    CornerRadius="30"
+                    WidthRequest="150"
+                    HeightRequest="50"
+                    BackgroundColor="DeepSkyBlue"
+                    Clicked="TakePhotoAsync"
+                    Text="Камера"
+                    />
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0,0,0,50">
                 <Button
                     x:Name="CancelBTN"
                     CornerRadius="30"
@@ -26,6 +49,7 @@
                     HeightRequest="50"
                     BackgroundColor="DeepSkyBlue"
                     HorizontalOptions="Start"
+                    Clicked="CancelBTN_Clicked"
                     Text="Отмена"
                     /> <Button
                     x:Name="EditBTN"
@@ -34,6 +58,7 @@
                     HeightRequest="50"
                     BackgroundColor="DeepSkyBlue"
                     HorizontalOptions="EndAndExpand"
+                    Clicked="EditBTN_Clicked"
                     Text="Изменить"
                     />
             </StackLayout>

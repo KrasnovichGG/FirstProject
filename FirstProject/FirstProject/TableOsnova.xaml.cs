@@ -30,6 +30,7 @@ namespace FirstProject
             Emailtxt2.Text = projectModel1.Email;   
             Adresstxt.Text = projectModel1.Adress;
             Phonetxt.Text = projectModel1.TeltphoneNumber;
+            Page11Photo.Source = projectModel1.ImagePath;
         }
     }
 }

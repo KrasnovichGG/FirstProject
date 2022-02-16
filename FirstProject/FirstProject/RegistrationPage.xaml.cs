@@ -19,7 +19,7 @@ namespace FirstProject
         
         private void BtnREG_Clicked(object sender, EventArgs e)
         {
-            App.Db.SaveItem(new ProjectModel("Борщ","Вкусный","89655335567","Borsh@mail.com","Адрес кастрюля"));
+            //App.Db.SaveItem(new ProjectModel("Борщ","Вкусный","89655335567","Borsh@mail.com","Адрес кастрюля"));
         }
     }
 }

@@ -12,13 +12,14 @@ namespace FirstProject.models
         {
         }
 
-        public ProjectModel(string name, string description, string teltphoneNumber, string email, string adress)
+        public ProjectModel(string name, string description, string teltphoneNumber, string email, string adress, string ImagePath)
         {
             Name = name;
             Description = description;
             TeltphoneNumber = teltphoneNumber;
             Email = email;
             Adress = adress;
+            this.ImagePath = ImagePath;
         }
 
         [PrimaryKey, AutoIncrement]
@@ -29,5 +30,6 @@ namespace FirstProject.models
         public string TeltphoneNumber { get; set; }
         public string Email { get; set; }
         public string Adress { get; set; }
+        public string ImagePath   { get; set; }
     }
 }

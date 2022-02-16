@@ -38,8 +38,69 @@
             </StackLayout>
         </ScrollView>
     </ContentPage>
-    <local:Page1 Title="Картинки">
-    </local:Page1>
+    <ContentPage Title="Картинки">
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                x:Name="Page1Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                    <Image
+                x:Name="Page11Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                x:Name="Page13Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                    <Image
+                x:Name="Page14Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                x:Name="Page15Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                    <Image
+                x:Name="Page16Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image 
+                x:Name="Page17Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                    <Image
+                x:Name="Page18Photo"
+                WidthRequest="200"
+                HeightRequest="200"
+                Scale="0.8"
+                Source="GardenSkapes.png"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+    
     <ContentPage Title="Контакты">
         <StackLayout Spacing="60" Margin="30,30,30,0">
             <Entry x:Name="Phonetxt" TextColor="Black" IsEnabled="False" Background="White" Placeholder="Телефон"  Keyboard="Telephone"/>
