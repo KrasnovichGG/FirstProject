@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstProject.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,16 +16,8 @@ namespace FirstProject
         public Login()
         {
             InitializeComponent();
-        }
-
-        private async void BtnRegistration_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new RegistrationPage());
-        }
-
-        private async void BtnLogin_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Pages());
+            NavigationPage.SetHasNavigationBar(this, false);
+            BindingContext = new LoginModelView { Navigation = this.Navigation };
         }
     }
 }
