@@ -7,15 +7,20 @@ namespace FirstProject.db
 {
     public class CRUDOperation
     {
-        SQLiteConnection db;
+        readonly SQLiteConnection db;
         public CRUDOperation(string databasePath)
         {
             db = new SQLiteConnection(databasePath);
             db.CreateTable<ProjectModel>();
+            db.CreateTable<Client>();
         }
         public IEnumerable<ProjectModel> GetProjects()
         {
             return db.Table<ProjectModel>();
+        }
+        public IEnumerable<Client> GetClients()
+        {
+            return db.Table<Client>();
         }
 
         public ProjectModel GetProjectItem(int id)
@@ -38,5 +43,9 @@ namespace FirstProject.db
             }
         }
 
+        public int SaveClient(Client projectModel)
+        {
+            return db.Insert(projectModel);
+        }
     }
 }
