@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodel="clr-namespace:FirstProject.ViewModel" x:DataType="viewmodel:LoginModelView"
              x:Class="FirstProject.Login" Visual="Material">
              
     <ContentPage.Content>
@@ -12,9 +12,9 @@
                 Source="APLUS.png" />
             <StackLayout Spacing="5">
                 <Label TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-                <Entry x:Name="LoginTextbox" Placeholder="Логин" TextColor="Black" Background="White"  Keyboard="Email"/>
+                <Entry x:Name="LoginTextbox" Placeholder="Логин" Text="{Binding Login}" TextColor="Black" Background="White"  Keyboard="Email"/>
                 <Label  TextColor="Black" Margin="10,10,60,0" FontSize="20"></Label>
-                <Entry x:Name="PasswordTextBox" IsPassword="True" Placeholder="Пароль" TextColor="Black" Background="White"  Keyboard="Chat"/>
+                <Entry x:Name="PasswordTextBox" IsPassword="True" Text="{Binding Password}" Placeholder="Пароль" TextColor="Black" Background="White"  Keyboard="Chat"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button
@@ -25,6 +25,8 @@
                     BorderWidth="1"
                     BackgroundColor="DeepSkyBlue"
                     TextColor="Black"
+                    Command="{Binding RegistrationCommand}"
+                    CommandParameter="{Binding}"
                     Text="Зарегистрироваться"
                     CornerRadius="45"/>
                 <Button
@@ -35,6 +37,8 @@
                     BorderWidth="1"
                     BackgroundColor="DeepSkyBlue"
                     TextColor="Black"
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding}"
                     Text="Войти"
                     CornerRadius="45"/>
             </StackLayout>
