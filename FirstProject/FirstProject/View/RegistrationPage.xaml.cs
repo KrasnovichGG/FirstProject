@@ -16,20 +16,7 @@ namespace FirstProject
         public RegistrationPage()
         {
             InitializeComponent();
-        }
-
-        private async void RegBtn_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                if (PasswordTxt.Text == PasswordCompleteTxt.Text)
-                    App.Db.SaveClient(new Client(EmailTxt.Text, LoginTxt.Text, PasswordTxt.Text));
-                await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
-            }
-            catch
-            {
-                await DisplayAlert("Уведомление", "Не удалось зарегистрироваться", "Ok");
-            }
+            BindingContext = new RegistrationViewModel { Navigation = this.Navigation };
         }
     }
 }
