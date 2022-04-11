@@ -1,4 +1,5 @@
 ﻿using System;
+using FirstProject.ViewModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,10 +17,19 @@ namespace FirstProject
         {
             InitializeComponent();
         }
-        
-        private void BtnREG_Clicked(object sender, EventArgs e)
+
+        private async void RegBtn_Clicked(object sender, EventArgs e)
         {
-            //App.Db.SaveItem(new ProjectModel("Борщ","Вкусный","89655335567","Borsh@mail.com","Адрес кастрюля"));
+            try
+            {
+                if (PasswordTxt.Text == PasswordCompleteTxt.Text)
+                    App.Db.SaveClient(new Client(EmailTxt.Text, LoginTxt.Text, PasswordTxt.Text));
+                await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+            }
+            catch
+            {
+                await DisplayAlert("Уведомление", "Не удалось зарегистрироваться", "Ok");
+            }
         }
     }
 }

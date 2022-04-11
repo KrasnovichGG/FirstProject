@@ -19,7 +19,6 @@
             <StackLayout Orientation="Horizontal">
                 <Button
                     x:Name="BtnRegistration"
-                    Clicked="BtnRegistration_Clicked"
                     HorizontalOptions="Start"
                     BorderColor="Black"
                     BorderWidth="1"
@@ -32,7 +31,6 @@
                 <Button
                     x:Name="BtnLogin"
                     HorizontalOptions="EndAndExpand"
-                    Clicked="BtnLogin_Clicked"
                     BorderColor="Black"
                     BorderWidth="1"
                     BackgroundColor="DeepSkyBlue"
