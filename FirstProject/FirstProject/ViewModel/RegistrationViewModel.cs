@@ -10,11 +10,12 @@ namespace FirstProject.ViewModel
 {
     public class RegistrationViewModel : INotifyPropertyChanged
     {
-        public Client Client { get; private set; } = new Client("","","");
+        public Client Client { get; private set; } = new Client("", "", "");
         string passwordCompleteTxt="";
         public RegistrationViewModel()
         {
             RegisCommand = new Command(RegBtn_Clicked);
+            Client = new Client("","","");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -32,7 +33,7 @@ namespace FirstProject.ViewModel
             try
             {
                 if (PasswordTxt == PasswordCompleteTxt)
-                    App.Db.SaveClient(new Client(EmailTxt, LoginTxt, PasswordTxt));
+                    App.Db.SaveClient(Client);
                 await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
             }
             catch
@@ -43,6 +44,6 @@ namespace FirstProject.ViewModel
         public string PasswordTxt { get => Client.Password; set{ Client.Password = value; OnPropertyChanged("PasswordTxt");} }
         public string LoginTxt { get => Client.Login; set { Client.Login = value; OnPropertyChanged("LoginTxt");} }
         public string PasswordCompleteTxt { get => passwordCompleteTxt; set { passwordCompleteTxt = value;OnPropertyChanged("PasswordCompleteTxt");}}
-        public string EmailTxt { get => EmailTxt; set { EmailTxt = value;OnPropertyChanged("EmailTxt");} }
+        public string EmailTxt { get => Client.Email; set { Client.Email = value;OnPropertyChanged("EmailTxt");} }
     }
 }

@@ -43,7 +43,6 @@
                     BackgroundColor="DeepSkyBlue"
                     BorderColor="Black"
                     BorderWidth="1"
-                    Clicked="BtnREG_Clicked"
                     Command="{Binding RegisCommand}"
                     CommandParameter="{Binding}"
                     CornerRadius="45"

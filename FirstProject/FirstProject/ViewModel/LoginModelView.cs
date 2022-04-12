@@ -15,7 +15,6 @@ namespace FirstProject.ViewModel
             LoginCommand = new Command(LoginBtn);
             RegistrationCommand = new Command(RegistrationPageBtn);
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand LoginCommand { protected set; get; }
         public ICommand RegistrationCommand { protected set; get; }
@@ -67,7 +66,6 @@ namespace FirstProject.ViewModel
                     }
                 }
             }
-
             if (!state)
                 await App.Current.MainPage.DisplayAlert("Error", "Уведомление Не правилный логин или пароль","Ok");
         }
