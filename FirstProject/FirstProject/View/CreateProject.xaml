@@ -1,69 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FirstProject.CreateProject" Visual="Material">
+<ContentPage
+    x:Class="FirstProject.CreateProject"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Visual="Material">
     <NavigationPage.TitleView>
-        <Label Margin="0,0,30,0"
-                FontSize="21"
-                HorizontalOptions="CenterAndExpand"
-                Text="Создать проект"
-                TextColor="White"
-                TextTransform="None"
-                VerticalOptions="CenterAndExpand"
-                Padding="70,0"/>
+        <Label
+            Margin="0,0,30,0"
+            Padding="70,0"
+            FontSize="21"
+            HorizontalOptions="CenterAndExpand"
+            Text="Создать проект"
+            TextColor="White"
+            TextTransform="None"
+            VerticalOptions="CenterAndExpand" />
     </NavigationPage.TitleView>
     <ScrollView>
-        <StackLayout Spacing="30" Margin="20,35">
-                <Entry x:Name="NameProject" BackgroundColor="LightGray" Placeholder="Имя проекта"/>
-                <Editor x:Name="Opisanie" BackgroundColor="LightGray" Placeholder="Описание" AutoSize="TextChanges"/>
-                <Entry x:Name="Phone" BackgroundColor="LightGray" Placeholder="Телефон №1"/>
-                <Entry x:Name="Email" BackgroundColor="LightGray" Placeholder="Email"/>
-                <Entry x:Name="Address" BackgroundColor="LightGray" Placeholder="Адрес"/>
-                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
-                <Image x:Name="pizda" WidthRequest="100" HeightRequest="100"></Image>
-                    <StackLayout HorizontalOptions="EndAndExpand">
-                        <Button
-                    x:Name="GalerylBTN"
-                    CornerRadius="30"
-                    WidthRequest="150"
-                    HeightRequest="50"
-                    BackgroundColor="DeepSkyBlue"
-                    Clicked="GetPhotoAsync"
-                    Text="Галерея"
-                    />
-                        <Button
-                    x:Name="CameraBTN"
-                    CornerRadius="30"
-                    WidthRequest="150"
-                    HeightRequest="50"
-                    BackgroundColor="DeepSkyBlue"
-                    Clicked="TakePhotoAsync"
-                    Text="Камера"
-                    />
-                    </StackLayout>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0,0,0,50" >
+        <StackLayout Margin="20,35" Spacing="30">
+            <Entry
+                x:Name="NameProject"
+                BackgroundColor="LightGray"
+                Placeholder="Имя проекта"
+                Text="{Binding NameProject}" />
+            <Editor
+                x:Name="Opisanie"
+                AutoSize="TextChanges"
+                BackgroundColor="LightGray"
+                Placeholder="Описание"
+                Text="{Binding Opisanie}" />
+            <Entry
+                x:Name="Phone"
+                BackgroundColor="LightGray"
+                Placeholder="Телефон №1"
+                Text="{Binding Phone}" />
+            <Entry
+                x:Name="Email"
+                BackgroundColor="LightGray"
+                Placeholder="Email"
+                Text="{Binding Email}" />
+            <Entry
+                x:Name="Address"
+                BackgroundColor="LightGray"
+                Placeholder="Адрес"
+                Text="{Binding Address}" />
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                <Image
+                    x:Name="pizda"
+                    HeightRequest="100"
+                    Source="{Binding pizda}"
+                    WidthRequest="100" />
+                <StackLayout HorizontalOptions="EndAndExpand">
                     <Button
-                    x:Name="CancelBTN"
-                    CornerRadius="30"
-                    WidthRequest="150"
-                    HeightRequest="50"
-                    BackgroundColor="DeepSkyBlue"
-                    HorizontalOptions="Start"
-                    Text="Отмена"
-                        Clicked="CancelBTN_Clicked"
-                    />
+                        x:Name="GalerylBTN"
+                        BackgroundColor="DeepSkyBlue"
+                        Command="{Binding GetPhotoAsyncCreate}"
+                        CommandParameter="{Binding}"
+                        CornerRadius="30"
+                        HeightRequest="50"
+                        Text="Галерея"
+                        WidthRequest="150" />
                     <Button
-                    x:Name="AddBTN"
-                    CornerRadius="30"
-                    WidthRequest="150"
-                    HeightRequest="50"
-                    BackgroundColor="DeepSkyBlue"
-                    HorizontalOptions="EndAndExpand"
-                    Clicked="AddBTN_Clicked"
-                    Text="Создать"
-                    />
+                        x:Name="CameraBTN"
+                        BackgroundColor="DeepSkyBlue"
+                        Command="{Binding TakePhotoAsyncCreate}"
+                        CommandParameter="{Binding}"
+                        CornerRadius="30"
+                        HeightRequest="50"
+                        Text="Камера"
+                        WidthRequest="150" />
                 </StackLayout>
             </StackLayout>
+            <StackLayout
+                Margin="0,0,0,50"
+                Orientation="Horizontal"
+                VerticalOptions="EndAndExpand">
+                <Button
+                    x:Name="CancelBTN"
+                    BackgroundColor="DeepSkyBlue"
+                    Command="{Binding CancelBTN_Clicked}"
+                    CommandParameter="{Binding}"
+                    CornerRadius="30"
+                    HeightRequest="50"
+                    HorizontalOptions="Start"
+                    Text="Отмена"
+                    WidthRequest="150" />
+                <Button
+                    x:Name="AddBTN"
+                    BackgroundColor="DeepSkyBlue"
+                    Command="{Binding AddBTN_Clicked}"
+                    CommandParameter="{Binding}"
+                    CornerRadius="30"
+                    HeightRequest="50"
+                    HorizontalOptions="EndAndExpand"
+                    Text="Создать"
+                    WidthRequest="150" />
+            </StackLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

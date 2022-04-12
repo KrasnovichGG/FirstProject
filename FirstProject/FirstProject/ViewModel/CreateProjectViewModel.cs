@@ -10,16 +10,15 @@ using Xamarin.Forms;
 
 namespace FirstProject.ViewModel
 {
-    public class EditProgectViewModel : INotifyPropertyChanged
+    public class CreateProjectViewModel : INotifyPropertyChanged
     {
-        public EditProgectViewModel()
+        public CreateProjectViewModel()
         {
             ProjectModel = new ProjectModel();
-            GetCommand = new Command(GetPhotoAsync); //галерея
-            TakeCommand = new Command(TakePhotoAsync); //камера
-            CancelCommand = new Command(CancelBTN_Clicked);
-            EditCommand = new Command(AddBtn);
-
+            GetCommandCreate = new Command(GetPhotoAsyncCreate);
+            TakeCommandCreate = new Command(TakePhotoAsyncCreate);
+            CancelCommandCreate = new Command(CancelBTN_Clicked);
+            AddCommand = new Command(AddBTN_Clicked);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -29,50 +28,26 @@ namespace FirstProject.ViewModel
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
-        public ICommand GetCommand { get; protected set; }
-        public ICommand TakeCommand { get; protected set; }
-        public ICommand CancelCommand { get; protected set; }
-        public ICommand EditCommand { get; protected set; }
-        public INavigation Navigation { get; set; }
+        public ICommand GetCommandCreate { protected set; get; }
+        public ICommand TakeCommandCreate { protected set; get; }
+        public ICommand CancelCommandCreate { protected set; get; }
+        public ICommand AddCommand { protected set; get; }
         public string NameProject { get => ProjectModel.Name; set { ProjectModel.Name = value; OnPropertyChanged("NameProject"); } }
         public string Opisanie { get => ProjectModel.Description; set { ProjectModel.Description = value; OnPropertyChanged("Opisanie"); } }
         public string Phone { get => ProjectModel.TeltphoneNumber; set { ProjectModel.TeltphoneNumber = value; OnPropertyChanged("Phone"); } }
         public string Email { get => ProjectModel.Email; set { ProjectModel.Email = value; OnPropertyChanged("Email"); } }
-        public string Address { get => ProjectModel.Adress;set { ProjectModel.Adress = value; OnPropertyChanged("Address"); } }
+        public string Address { get => ProjectModel.Adress; set { ProjectModel.Adress = value; OnPropertyChanged("Address"); } }
         public string pizda { get => ProjectModel.ImagePath; set { ProjectModel.ImagePath = value; OnPropertyChanged("pizda"); } }
         async void CancelBTN_Clicked()
         {
-            await Navigation.PopAsync();
+            await App.Current.MainPage.Navigation.PopAsync();
         }
-
-        async void GetPhotoAsync()
+        async void GetPhotoAsyncCreate()
         {
             try
             {
                 // выбираем фото
                 var photo = await MediaPicker.PickPhotoAsync();
-                ProjectModel.ImagePath = photo.FullPath; 
-            }
-            catch (Exception ex)
-            {
-                await App.Current.MainPage.DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
-            }
-        }
-        async void TakePhotoAsync()
-        {
-            try
-            {
-                var photo = await MediaPicker.CapturePhotoAsync(new MediaPickerOptions
-                {
-                    Title = $"xamarin.{DateTime.Now.ToString("dd.MM.yyyy_hh.mm.ss")}.png"
-                });
-
-                // для примера сохраняем файл в локальном хранилище
-
-                var newFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), photo.FileName);
-                using (var stream = await photo.OpenReadAsync())
-                using (var newStream = File.OpenWrite(newFile))
-                    await stream.CopyToAsync(newStream);
                 ProjectModel.ImagePath = photo.FullPath;
             }
             catch (Exception ex)
@@ -80,7 +55,27 @@ namespace FirstProject.ViewModel
                 await App.Current.MainPage.DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
             }
         }
-        public void AddBtn()
+        async void TakePhotoAsyncCreate()
+        {
+            try
+            {
+                var photo = await MediaPicker.CapturePhotoAsync(new MediaPickerOptions
+                {
+                    Title = $"xamarin.{DateTime.Now.ToString("dd.MM.yyyy_hh.mm.ss")}.png"
+                });
+                // для примера сохраняем файл в локальном хранилище
+                var newFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), photo.FileName);
+                using (var stream = await photo.OpenReadAsync())
+                using (var newStream = File.OpenWrite(newFile))
+                await stream.CopyToAsync(newStream);
+                ProjectModel.ImagePath = photo.FullPath;
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
+            }
+        }
+        private void AddBTN_Clicked()
         {
             try
             {
@@ -88,7 +83,7 @@ namespace FirstProject.ViewModel
             }
             catch (Exception ex)
             {
-                App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+               App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
             }
         }
     }
