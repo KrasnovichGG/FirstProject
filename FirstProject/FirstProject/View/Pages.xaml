@@ -1,50 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FirstProject.Pages">
+<ContentPage
+    x:Class="FirstProject.Pages"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
             <Label
                 FontSize="21"
                 HorizontalOptions="CenterAndExpand"
                 Text="Проекты"
-                TextColor="White"/>
+                TextColor="White" />
             <Label
-                FontSize="41"
                 FontFamily="MaterialIconsFont"
-                VerticalOptions="CenterAndExpand"
+                FontSize="41"
                 HorizontalOptions="End"
                 Text="&#xe145;"
-                TextColor="White">
+                TextColor="White"
+                VerticalOptions="CenterAndExpand">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    <TapGestureRecognizer Command="{Binding Back}" CommandParameter="{Binding}" />
                 </Label.GestureRecognizers>
             </Label>
-
-            <!--<ImageButton 
-                Aspect="AspectFit"
-                BackgroundColor="Transparent"
-                Margin="0,0,19,0"
-                HeightRequ  est="30"
-                Clicked="ImageButton_Clicked"
-                HorizontalOptions="End"
-                Source="Plus.png"
-                WidthRequest="30"/>-->
         </StackLayout>
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
         <StackLayout>
-
-            <ListView x:Name="projectList" ItemTapped="projectList_ItemTapped"
-                      >
+            <ListView
+                x:Name="projectList"
+                ItemsSource="{Binding Projects}"
+                SelectedItem="{Binding SelectedProject}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}" TextColor="Black"/>
+                        <TextCell Text="{Binding Name}" TextColor="Black" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,27 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="FirstProject.TableOsnova"
-            xmlns:local="clr-namespace:FirstProject" Visual="Material">
+<TabbedPage
+    x:Class="FirstProject.TableOsnova"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FirstProject"
+    Visual="Material">
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
-            <Label Margin="0,0,30,0"
+            <Label
+                Margin="0,0,30,0"
+                Padding="70,0"
                 FontSize="21"
                 HorizontalOptions="CenterAndExpand"
-                Text="Проект №1"
+                Text="{Binding NameProject}"
                 TextColor="White"
                 TextTransform="None"
-                VerticalOptions="CenterAndExpand"
-                Padding="70,0"/>
+                VerticalOptions="CenterAndExpand" />
             <Label
-                FontSize="35"
                 FontFamily="MaterialIconsFont"
-                VerticalOptions="CenterAndExpand"
+                FontSize="35"
                 HorizontalOptions="End"
                 Text="&#xe3c9;"
-                TextColor="White">
+                TextColor="White"
+                VerticalOptions="CenterAndExpand">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    <TapGestureRecognizer Command="{Binding TapGestureRecognizer_Tapped}" CommandParameter="{Binding}" />
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
@@ -29,12 +32,19 @@
     <ContentPage Title="О проекте">
         <ScrollView>
             <StackLayout Spacing="-30">
-                <Label FontSize="25" Margin="20" HorizontalTextAlignment="Center" FontAttributes="Bold">Описание</Label>
-                <Label FontSize="15" HorizontalTextAlignment="Center" Margin="20" FontAttributes="Bold" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ultricies orci, in porta sem. Vestibulum in risus iaculis, porta orci at, bibendum velit. Nam volutpat pulvinar feugiat. Suspendisse imperdiet scelerisque porttitor. Integer mauris nibh, varius nec sem at, molestie cursus enim. Curabitur quis ipsum arcu. Ut ac accumsan dolor, sit amet molestie massa. In pharetra metus nec metus rutrum rhoncus. Quisque vestibulum dui dui, nec posuere nunc condimentum ut. Nunc accumsan sagittis dolor eu imperdiet."></Label>
-                <Label FontSize="15" HorizontalTextAlignment="Center" Margin="20" FontAttributes="Bold" Text="Phasellus non purus et ante convallis volutpat. Curabitur fringilla, ligula quis consequat feugiat, nibh justo condimentum diam, sit amet tincidunt dui sapien ut ante. Integer pretium dui vitae magna interdum pellentesque. In ac ornare est. Donec congue volutpat nibh, sed pretium mi venenatis vel. Donec rutrum elementum lectus, eu posuere libero commodo id. Pellentesque molestie sollicitudin velit et sagittis."></Label>
-                <Label FontSize="15" HorizontalTextAlignment="Center" Margin="20" FontAttributes="Bold" Text="Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc cursus quam ac mauris cursus pharetra. Nam quis pretium lorem. Phasellus erat nibh, tempus eget arcu et, malesuada malesuada nibh. Praesent semper nulla vel ligula pharetra, et fringilla metus viverra. Morbi orci tortor, mattis eu arcu eu, tristique venenatis quam. Fusce facilisis vel est nec laoreet. In dictum felis nisl, ullamcorper pulvinar enim volutpat et. Integer in nisl ut elit gravida maximus. Fusce nec lacus a massa cursus elementum quis commodo enim. Aliquam tincidunt, velit ut sollicitudin laoreet, felis odio accumsan nisi, nec placerat nulla est quis lorem. Suspendisse sed sapien sit amet tellus viverra porttitor. Nam nunc massa, tempus et velit a, volutpat semper ipsum."></Label>
-                <Label FontSize="15" HorizontalTextAlignment="Center" Margin="20" FontAttributes="Bold" Text="Aliquam condimentum dolor sed condimentum finibus. In nec tincidunt magna. Proin suscipit mi non orci facilisis efficitur. Proin vel bibendum urna, in sagittis turpis. Aliquam in tellus nec augue tempor viverra non eu nibh. Quisque porttitor dolor tortor, quis condimentum elit malesuada et. Nulla facilisi. Aliquam erat volutpat. Nulla facilisi. Maecenas imperdiet euismod dapibus. Maecenas pharetra lectus eget feugiat aliquet."></Label>
-                <Label FontSize="15" HorizontalTextAlignment="Center" Margin="20" FontAttributes="Bold" Text="Vestibulum maximus orci ac ligula sagittis fermentum. Phasellus felis dui, porta ac sapien nec, cursus egestas ante. Nam vehicula sed odio id dapibus. Suspendisse ultrices mauris ut ipsum mollis, at porta orci fermentum. Aenean varius pretium ex eu commodo. Aenean luctus orci dui, et faucibus nulla commodo sodales. Nunc ornare, turpis quis elementum maximus, libero sem semper arcu, nec vulputate nunc massa a ante. Curabitur eu iaculis metus. Aliquam venenatis iaculis quam. Aliquam ac nibh cursus, aliquam dui id, convallis leo. Fusce est erat, convallis eget molestie eu, accumsan nec felis." ></Label>
+                <Label
+                    Margin="20"
+                    FontAttributes="Bold"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center">
+                    Описание
+                </Label>
+                <Label
+                    Margin="20"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Opisanie}" />
             </StackLayout>
         </ScrollView>
     </ContentPage>
@@ -42,71 +52,91 @@
         <ScrollView>
             <StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Image 
-                x:Name="Page1Photo"
-                WidthRequest="200"
-                HeightRequest="200"
-                Scale="0.8"
-                Source="GardenSkapes.png"/>
                     <Image
-                x:Name="Page11Photo"
-                WidthRequest="200"
-                HeightRequest="200"
-                Scale="0.8"
-                Source="GardenSkapes.png"/>
+                        x:Name="Page1Photo"
+                        HeightRequest="200"
+                        Scale="0.8"
+                        Source="{Binding pizda}"
+                        WidthRequest="200" />
+                    <Image
+                        x:Name="Page11Photo"
+                        HeightRequest="200"
+                        Scale="0.8"
+                        Source="GardenSkapes.png"
+                        WidthRequest="200" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Image 
-                x:Name="Page13Photo"
-                WidthRequest="200"
-                HeightRequest="200"
-                Scale="0.8"
-                Source="GardenSkapes.png"/>
                     <Image
-                x:Name="Page14Photo"
-                WidthRequest="200"
-                HeightRequest="200"
-                Scale="0.8"
-                Source="GardenSkapes.png"/>
+                        x:Name="Page13Photo"
+                        HeightRequest="200"
+                        Scale="0.8"
+                        Source="GardenSkapes.png"
+                        WidthRequest="200" />
+                    <Image
+                        x:Name="Page14Photo"
+                        HeightRequest="200"
+                        Scale="0.8"
+                        Source="GardenSkapes.png"
+                        WidthRequest="200" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Image 
-                x:Name="Page15Photo"
-                WidthRequest="200"
-                HeightRequest="200"
-                Scale="0.8"
-                Source="GardenSkapes.png"/>
                     <Image
-                x:Name="Page16Photo"
-                WidthRequest="200"
-                HeightRequest="200"
-                Scale="0.8"
-                Source="GardenSkapes.png"/>
+                        x:Name="Page15Photo"
+                        HeightRequest="200"
+                        Scale="0.8"
+                        Source="GardenSkapes.png"
+                        WidthRequest="200" />
+                    <Image
+                        x:Name="Page16Photo"
+                        HeightRequest="200"
+                        Scale="0.8"
+                        Source="GardenSkapes.png"
+                        WidthRequest="200" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Image 
-                x:Name="Page17Photo"
-                WidthRequest="200"
-                HeightRequest="200"
-                Scale="0.8"
-                Source="GardenSkapes.png"/>
                     <Image
-                x:Name="Page18Photo"
-                WidthRequest="200"
-                HeightRequest="200"
-                Scale="0.8"
-                Source="GardenSkapes.png"/>
+                        x:Name="Page17Photo"
+                        HeightRequest="200"
+                        Scale="0.8"
+                        Source="GardenSkapes.png"
+                        WidthRequest="200" />
+                    <Image
+                        x:Name="Page18Photo"
+                        HeightRequest="200"
+                        Scale="0.8"
+                        Source="GardenSkapes.png"
+                        WidthRequest="200" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage>
-    
+
     <ContentPage Title="Контакты">
-        <StackLayout Spacing="60" Margin="30,30,30,0">
-            <Entry x:Name="Phonetxt" TextColor="Black" IsEnabled="False" Background="White" Placeholder="Телефон"  Keyboard="Telephone"/>
-                <Entry x:Name="Phonetxt2" TextColor="Black" IsEnabled="False" Placeholder="Телефон" Background="White"  Keyboard="Telephone"/>
-                <Entry x:Name="Emailtxt2" TextColor="Black" IsEnabled="False" Placeholder="Email"  Background="White"  Keyboard="Email"/>
-            <Entry x:Name="Adresstxt" TextColor="Black" Placeholder="Адрес" IsEnabled="False" Background="White"  Keyboard="Chat"/>
+        <StackLayout Margin="30,30,30,0" Spacing="60">
+            <Entry
+                x:Name="Phonetxt"
+                Background="White"
+                IsEnabled="False"
+                Keyboard="Telephone"
+                Placeholder="Телефон"
+                Text="{Binding Phone}"
+                TextColor="Black" />
+            <Entry
+                x:Name="Emailtxt2"
+                Background="White"
+                IsEnabled="False"
+                Keyboard="Email"
+                Placeholder="Email"
+                Text="{Binding Email}"
+                TextColor="Black" />
+            <Entry
+                x:Name="Adresstxt"
+                Background="White"
+                IsEnabled="False"
+                Keyboard="Chat"
+                Placeholder="Адрес"
+                Text="{Binding Address}"
+                TextColor="Black" />
         </StackLayout>
     </ContentPage>
 </TabbedPage>
