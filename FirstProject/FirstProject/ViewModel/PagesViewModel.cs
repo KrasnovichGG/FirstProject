@@ -12,7 +12,6 @@ namespace FirstProject.ViewModel
     public class PagesViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public ProjectModel ProjectModel { get; set; }
         public INavigation Navigation { get; set; }
         public ICommand CreateprojectsCommand { protected set; get; }
         public ICommand BackCommand { protected set; get; }
@@ -35,7 +34,7 @@ namespace FirstProject.ViewModel
         }
         public async void CreateProject()
         {
-            await Navigation.PushAsync(new CreateProject(new CreateProjectViewModel()));
+            await Navigation.PushAsync(new CreateProject(new CreateProjectViewModel() { Navigation = this.Navigation}));
         }
         public TableOsnovaViewModel SelectedProject
         {

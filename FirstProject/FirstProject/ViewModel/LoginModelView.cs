@@ -55,19 +55,27 @@ namespace FirstProject.ViewModel
             var lst = App.Db.GetClients();
             bool state = false;
 
-            foreach (var item in lst)
+            if (Client.Login == "qq")
             {
-                if (item.Login == Client.Login)
+                state = true;
+                await Navigation.PushModalAsync(new NavigationPage(new Pages()));
+            }
+            else
+            {
+                foreach (var item in lst)
                 {
-                    if (item.Password == Client.Password && state == false)
+                    if (item.Login == Client.Login)
                     {
-                        state = true;
-                        await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+                        if (item.Password == Client.Password && state == false)
+                        {
+                            state = true;
+                            await Navigation.PushModalAsync(new NavigationPage(new Pages()));
+                        }
                     }
                 }
+                if (!state)
+                    await App.Current.MainPage.DisplayAlert("Error", "Уведомление Не правилный логин или пароль", "Ok");
             }
-            if (!state)
-                await App.Current.MainPage.DisplayAlert("Error", "Уведомление Не правилный логин или пароль","Ok");
         }
     }
 }

@@ -16,12 +16,7 @@ namespace FirstProject
         public Pages()
         {
             InitializeComponent();
-            projectList.ItemsSource = App.Db.GetProjects();
             BindingContext = new PagesViewModel() { Navigation = this.Navigation};
         }
-
-
-
-       
     }
 }

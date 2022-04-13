@@ -34,7 +34,7 @@ namespace FirstProject.ViewModel
             {
                 if (PasswordTxt == PasswordCompleteTxt)
                     App.Db.SaveClient(Client);
-                await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+                await Navigation.PopAsync();
             }
             catch
             {

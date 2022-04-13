@@ -28,6 +28,7 @@ namespace FirstProject.ViewModel
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+        public INavigation Navigation { get; set; }
         public ICommand GetCommandCreate { protected set; get; }
         public ICommand TakeCommandCreate { protected set; get; }
         public ICommand CancelCommandCreate { protected set; get; }
@@ -48,7 +49,7 @@ namespace FirstProject.ViewModel
             {
                 // выбираем фото
                 var photo = await MediaPicker.PickPhotoAsync();
-                ProjectModel.ImagePath = photo.FullPath;
+                pizda = photo.FullPath;
             }
             catch (Exception ex)
             {
@@ -68,18 +69,19 @@ namespace FirstProject.ViewModel
                 using (var stream = await photo.OpenReadAsync())
                 using (var newStream = File.OpenWrite(newFile))
                 await stream.CopyToAsync(newStream);
-                ProjectModel.ImagePath = photo.FullPath;
+                pizda = photo.FullPath;
             }
             catch (Exception ex)
             {
                 await App.Current.MainPage.DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
             }
         }
-        private void AddBTN_Clicked()
+        private async void AddBTN_Clicked()
         {
             try
             {
                 App.Db.SaveItem(ProjectModel);
+                await Navigation.PopAsync();
             }
             catch (Exception ex)
             {

@@ -53,7 +53,7 @@
                     <Button
                         x:Name="GalerylBTN"
                         BackgroundColor="DeepSkyBlue"
-                        Command="{Binding GetPhotoAsyncCreate}"
+                        Command="{Binding GetCommandCreate}"
                         CommandParameter="{Binding}"
                         CornerRadius="30"
                         HeightRequest="50"
@@ -62,7 +62,7 @@
                     <Button
                         x:Name="CameraBTN"
                         BackgroundColor="DeepSkyBlue"
-                        Command="{Binding TakePhotoAsyncCreate}"
+                        Command="{Binding TakeCommandCreate}"
                         CommandParameter="{Binding}"
                         CornerRadius="30"
                         HeightRequest="50"
@@ -77,7 +77,7 @@
                 <Button
                     x:Name="CancelBTN"
                     BackgroundColor="DeepSkyBlue"
-                    Command="{Binding CancelBTN_Clicked}"
+                    Command="{Binding CancelCommandCreate}"
                     CommandParameter="{Binding}"
                     CornerRadius="30"
                     HeightRequest="50"
@@ -87,7 +87,7 @@
                 <Button
                     x:Name="AddBTN"
                     BackgroundColor="DeepSkyBlue"
-                    Command="{Binding AddBTN_Clicked}"
+                    Command="{Binding AddCommand}"
                     CommandParameter="{Binding}"
                     CornerRadius="30"
                     HeightRequest="50"

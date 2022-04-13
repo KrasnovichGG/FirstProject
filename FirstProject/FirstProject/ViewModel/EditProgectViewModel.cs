@@ -51,7 +51,7 @@ namespace FirstProject.ViewModel
             {
                 // выбираем фото
                 var photo = await MediaPicker.PickPhotoAsync();
-                ProjectModel.ImagePath = photo.FullPath; 
+                pizda = photo.FullPath; 
             }
             catch (Exception ex)
             {
@@ -73,7 +73,7 @@ namespace FirstProject.ViewModel
                 using (var stream = await photo.OpenReadAsync())
                 using (var newStream = File.OpenWrite(newFile))
                     await stream.CopyToAsync(newStream);
-                ProjectModel.ImagePath = photo.FullPath;
+                pizda = photo.FullPath;
             }
             catch (Exception ex)
             {

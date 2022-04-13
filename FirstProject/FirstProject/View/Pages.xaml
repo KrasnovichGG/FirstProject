@@ -18,7 +18,7 @@
                 TextColor="White"
                 VerticalOptions="CenterAndExpand">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Back}" CommandParameter="{Binding}" />
+                    <TapGestureRecognizer Command="{Binding CreateprojectsCommand}" CommandParameter="{Binding}" />
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
@@ -32,7 +32,7 @@
                 SelectedItem="{Binding SelectedProject}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}" TextColor="Black" />
+                        <TextCell Text="{Binding NameProject}" TextColor="Black" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
